@@ -1,5 +1,7 @@
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Reveal from '../Reveal.jsx'
+import { easeOutCubic, softButton } from '../../utils/motion'
 
 const heroSlides = [
   { image: '/images/image-01.jpg', alt: 'Luxury villa architecture' },
@@ -27,7 +29,7 @@ function HeroSection({ onOpenVideoModal, onPrefillProject, onSetSlide }) {
             <span>Pune's Premier Luxury Developer</span>
           </Reveal>
 
-          <Reveal as="h1" className="w-full max-w-full text-[1.9rem] leading-[0.96] font-extrabold tracking-tight text-white sm:max-w-[90vw] sm:text-5xl lg:max-w-[700px] lg:text-6xl" delay={160} direction="up">
+          <Reveal as="h1" className="w-full max-w-full text-[1.9rem] leading-[0.96] font-extrabold tracking-tight text-white sm:max-w-[90vw] sm:text-5xl lg:max-w-[700px] lg:text-6xl" delay={160} direction="hero">
             <span className="hero-word block">A LIFE BEYOND</span>
             <span className="hero-word text-gradient-red block text-[1.6rem] sm:text-5xl lg:text-6xl">IMAGINATION.</span>
             <span className="hero-word text-gradient-gold block text-[1.25rem] leading-[1.1] sm:text-5xl sm:leading-[1.1] lg:text-6xl">REFINED<br />LUXURY.</span>
@@ -38,16 +40,18 @@ function HeroSection({ onOpenVideoModal, onPrefillProject, onSetSlide }) {
           </Reveal>
 
           <Reveal as="div" className="flex flex-wrap items-center gap-4 pt-4" delay={300} direction="up">
-            <Link className="flex items-center gap-3 rounded-full bg-brandRed px-8 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-[0_0_25px_rgba(229,37,42,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-brandRed-hover hover:shadow-[0_0_40px_rgba(229,37,42,0.9)]" to="/projects">
-              Explore Portfolio
-              <i className="fa-solid fa-arrow-right-long text-xs" />
-            </Link>
-            <button className="group flex items-center gap-3 rounded-full border border-white/20 bg-darkBg/40 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:border-brandRed hover:bg-brandRed/20" onClick={onOpenVideoModal} type="button">
+            <motion.div whileHover={softButton.hover} whileTap={softButton.tap} transition={{ type: 'spring', stiffness: 220, damping: 18 }}>
+              <Link className="flex items-center gap-3 rounded-full bg-brandRed px-8 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-[0_0_25px_rgba(229,37,42,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-brandRed-hover hover:shadow-[0_0_40px_rgba(229,37,42,0.9)]" to="/projects">
+                Explore Portfolio
+                <i className="fa-solid fa-arrow-right-long text-xs" />
+              </Link>
+            </motion.div>
+            <motion.button initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: easeOutCubic }} whileHover={{ y: -2, scale: 1.01 }} whileTap={{ scale: 0.985 }} className="group flex items-center gap-3 rounded-full border border-white/20 bg-darkBg/40 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:border-brandRed hover:bg-brandRed/20" onClick={onOpenVideoModal} type="button">
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brandRed transition-transform group-hover:scale-110">
                 <i className="fa-solid fa-play ml-0.5 text-xs text-white" />
               </span>
               Watch Legacy Video
-            </button>
+            </motion.button>
           </Reveal>
 
           <Reveal as="div" className="flex items-center gap-3 pt-6" delay={360} direction="up" aria-label="Hero slide controls">
@@ -80,9 +84,9 @@ function HeroSection({ onOpenVideoModal, onPrefillProject, onSetSlide }) {
               <div className="rounded-xl border border-white/5 bg-darkBg/60 p-2"><span className="block text-[10px] text-gray-400">Possession</span><span className="font-bold text-brandRed">Dec 2026</span></div>
               <div className="rounded-xl border border-white/5 bg-darkBg/60 p-2"><span className="block text-[10px] text-gray-400">Status</span><span className="font-bold text-white">Under Const.</span></div>
             </div>
-            <button className="block w-full rounded-xl bg-brandRed px-3 py-3 text-center text-xs font-bold uppercase tracking-wider text-white shadow-[0_0_15px_rgba(229,37,42,0.4)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-brandRed-hover" onClick={() => onPrefillProject('Luminare Heights')} type="button">
+            <motion.button whileHover={{ y: -2 }} whileTap={{ scale: 0.985 }} className="block w-full rounded-xl bg-brandRed px-3 py-3 text-center text-xs font-bold uppercase tracking-wider text-white shadow-[0_0_15px_rgba(229,37,42,0.4)] transition-all duration-300 hover:bg-brandRed-hover" onClick={() => onPrefillProject('Luminare Heights')} type="button">
               Book VIP Preview
-            </button>
+            </motion.button>
           </Reveal>
         </div>
       </div>

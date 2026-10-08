@@ -1,52 +1,50 @@
-import { useEffect, useRef, useState } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
+import { easeOutCubic, heroTitle, revealDown, revealLeft, revealRight, revealUp } from '../utils/motion'
+
+const directionMap = {
+	up: revealUp,
+	left: revealLeft,
+	right: revealRight,
+	down: revealDown,
+	hero: heroTitle,
+}
+
+const motionComponents = new WeakMap()
+
+function getMotionComponent(Component) {
+	if (!motionComponents.has(Component)) {
+		motionComponents.set(Component, motion.create(Component))
+	}
+
+	return motionComponents.get(Component)
+}
 
 function Reveal({
-  as: Component = 'div',
-  children,
-  className = '',
-  delay = 0,
-  direction = 'up',
-  duration = 700,
-  amount = 0.18,
+	as: Component = 'div',
+	children,
+	className = '',
+	delay = 0,
+	direction = 'up',
+	duration = 0.7,
+	amount = 0.2,
+	...props
 }) {
-  const ref = useRef(null)
-  const [visible, setVisible] = useState(false)
+	const shouldReduceMotion = useReducedMotion()
+	const MotionTag = typeof Component === 'string' ? motion[Component] : getMotionComponent(Component)
+	const variants = directionMap[direction] || revealUp
 
-  useEffect(() => {
-    const element = ref.current
-    if (!element) return
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
-    if (prefersReducedMotion.matches) {
-      setVisible(true)
-      return
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisible(true)
-            observer.disconnect()
-          }
-        })
-      },
-      { threshold: amount, rootMargin: '0px 0px -8% 0px' },
-    )
-
-    observer.observe(element)
-    return () => observer.disconnect()
-  }, [amount])
-
-  return (
-    <Component
-      ref={ref}
-      className={`reveal reveal-${direction} ${visible ? 'is-visible' : ''} ${className}`.trim()}
-      style={{ transitionDelay: `${delay}ms`, transitionDuration: `${duration}ms` }}
-    >
-      {children}
-    </Component>
-  )
+	return (
+		<MotionTag
+			className={className}
+			initial={shouldReduceMotion ? { opacity: 1, x: 0, y: 0, filter: 'blur(0px)' } : variants.hidden}
+			whileInView={shouldReduceMotion ? { opacity: 1, x: 0, y: 0, filter: 'blur(0px)' } : variants.visible}
+			viewport={{ once: true, amount }}
+			transition={{ duration, delay: delay / 1000, ease: easeOutCubic }}
+			{...props}
+		>
+			{children}
+		</MotionTag>
+	)
 }
 
 export default Reveal
