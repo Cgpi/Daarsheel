@@ -11,7 +11,7 @@
   --color-darkBorder: #1f2736;
   --color-goldAccent: #dfb15b;
   --font-sans: "Plus Jakarta Sans", sans-serif;
-  --font-heading: "Syne", sans-serif;
+  --font-heading: "Google Sans Flex", sans-serif;
   --animate-pulse-glow: pulseGlow 3s infinite ease-in-out;
   --animate-float: float 6s ease-in-out infinite;
 
@@ -61,13 +61,17 @@ select,
 textarea {
   transition: all 240ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-
 h1,
 h2,
 h3,
 h4,
 .font-heading {
-  font-family: "Syne", sans-serif;
+  font-family: "Google Sans Flex", sans-serif;
+  font-optical-sizing: auto;
+  font-variation-settings:
+    "wght" 900,
+    "wdth" 150;
+  letter-spacing: normal;
 }
 
 h1,
