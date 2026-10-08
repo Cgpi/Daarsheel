@@ -17,13 +17,15 @@ function HomePage({ onOpenProjectDetails, onOpenVideoModal, onPrefillProject, on
         onSetSlide={onSetSlide}
       />
       <StatsSection />
+      
       <AboutSection />
-      <WhyChooseSection />
       <ProjectsSection
         onOpenProjectDetails={onOpenProjectDetails}
         onPrefillProject={onPrefillProject}
         projects={projects}
       />
+      <WhyChooseSection />
+      
       <ProcessSection />
       <LocationsSection />
       <EnquirySection />
