@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import Reveal from '../Reveal.jsx'
 
 const heroSlides = [
   { image: '/images/image-01.jpg', alt: 'Luxury villa architecture' },
@@ -21,23 +22,23 @@ function HeroSection({ onOpenVideoModal, onPrefillProject, onSetSlide }) {
 
       <div className="relative z-10 grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
         <div className="flex flex-col items-start space-y-6 lg:col-span-8">
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-brandRed/40 bg-darkBg/60 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-[0_0_15px_rgba(229,37,42,0.3)]">
+          <Reveal as="div" className="inline-flex items-center gap-2.5 rounded-full border border-brandRed/40 bg-darkBg/60 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-[0_0_15px_rgba(229,37,42,0.3)]" delay={80} direction="down">
             <span className="h-2 w-2 animate-ping rounded-full bg-brandRed" />
             <span>Pune's Premier Luxury Developer</span>
-          </div>
+          </Reveal>
 
-          <h1 className="w-full max-w-full text-[1.9rem] leading-[0.96] font-extrabold tracking-tight text-white sm:max-w-[90vw] sm:text-5xl lg:max-w-[700px] lg:text-6xl">
-            <span className="block">A LIFE BEYOND</span>
-            <span className="text-gradient-red block text-[1.6rem] sm:text-5xl lg:text-6xl">IMAGINATION.</span>
-            <span className="text-gradient-gold block text-[1.25rem] leading-[1.1] sm:text-5xl sm:leading-[1.1] lg:text-6xl">REFINED<br />LUXURY.</span>
-          </h1>
+          <Reveal as="h1" className="w-full max-w-full text-[1.9rem] leading-[0.96] font-extrabold tracking-tight text-white sm:max-w-[90vw] sm:text-5xl lg:max-w-[700px] lg:text-6xl" delay={160} direction="up">
+            <span className="hero-word block">A LIFE BEYOND</span>
+            <span className="hero-word text-gradient-red block text-[1.6rem] sm:text-5xl lg:text-6xl">IMAGINATION.</span>
+            <span className="hero-word text-gradient-gold block text-[1.25rem] leading-[1.1] sm:text-5xl sm:leading-[1.1] lg:text-6xl">REFINED<br />LUXURY.</span>
+          </Reveal>
 
-          <p className="max-w-2xl text-base leading-relaxed text-gray-300 sm:text-xl">
+          <Reveal as="p" className="max-w-2xl text-base leading-relaxed text-gray-300 sm:text-xl" delay={240} direction="up">
             Crafting iconic architectural landmarks, ultra-luxurious residential estates, and vibrant commercial spaces engineered for generations of distinction.
-          </p>
+          </Reveal>
 
-          <div className="flex flex-wrap items-center gap-4 pt-4">
-            <Link className="flex items-center gap-3 rounded-full bg-brandRed px-8 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-[0_0_25px_rgba(229,37,42,0.6)] transition-all duration-300 hover:bg-brandRed-hover hover:shadow-[0_0_40px_rgba(229,37,42,0.9)]" to="/projects">
+          <Reveal as="div" className="flex flex-wrap items-center gap-4 pt-4" delay={300} direction="up">
+            <Link className="flex items-center gap-3 rounded-full bg-brandRed px-8 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-[0_0_25px_rgba(229,37,42,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-brandRed-hover hover:shadow-[0_0_40px_rgba(229,37,42,0.9)]" to="/projects">
               Explore Portfolio
               <i className="fa-solid fa-arrow-right-long text-xs" />
             </Link>
@@ -47,17 +48,17 @@ function HeroSection({ onOpenVideoModal, onPrefillProject, onSetSlide }) {
               </span>
               Watch Legacy Video
             </button>
-          </div>
+          </Reveal>
 
-          <div className="flex items-center gap-3 pt-6" aria-label="Hero slide controls">
+          <Reveal as="div" className="flex items-center gap-3 pt-6" delay={360} direction="up" aria-label="Hero slide controls">
             {[0, 1, 2].map((index) => (
               <button aria-label={`Slide ${index + 1}`} className={`slide-indicator h-1.5 rounded-full transition-all duration-300 ${index === 0 ? 'w-10 bg-brandRed' : 'w-3 bg-white/30 hover:bg-brandRed'}`} key={index} onClick={() => onSetSlide(index)} type="button" />
             ))}
-          </div>
+          </Reveal>
         </div>
 
         <div className="hidden lg:col-span-4 lg:block">
-          <div className="crimson-glass relative animate-float overflow-hidden rounded-3xl border border-brandRed/30 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-xl">
+          <Reveal as="div" className="crimson-glass hero-card relative animate-float overflow-hidden rounded-3xl border border-brandRed/30 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-xl" delay={200} direction="right">
             <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-brandRed/20 blur-2xl" />
             <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-4">
               <span className="text-xs font-bold uppercase tracking-wider text-brandRed">Flagship Showcase</span>
@@ -79,10 +80,10 @@ function HeroSection({ onOpenVideoModal, onPrefillProject, onSetSlide }) {
               <div className="rounded-xl border border-white/5 bg-darkBg/60 p-2"><span className="block text-[10px] text-gray-400">Possession</span><span className="font-bold text-brandRed">Dec 2026</span></div>
               <div className="rounded-xl border border-white/5 bg-darkBg/60 p-2"><span className="block text-[10px] text-gray-400">Status</span><span className="font-bold text-white">Under Const.</span></div>
             </div>
-            <button className="block w-full rounded-xl bg-brandRed px-3 py-3 text-center text-xs font-bold uppercase tracking-wider text-white shadow-[0_0_15px_rgba(229,37,42,0.4)] transition-colors hover:bg-brandRed-hover" onClick={() => onPrefillProject('Luminare Heights')} type="button">
+            <button className="block w-full rounded-xl bg-brandRed px-3 py-3 text-center text-xs font-bold uppercase tracking-wider text-white shadow-[0_0_15px_rgba(229,37,42,0.4)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-brandRed-hover" onClick={() => onPrefillProject('Luminare Heights')} type="button">
               Book VIP Preview
             </button>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

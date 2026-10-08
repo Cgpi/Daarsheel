@@ -100,7 +100,7 @@ function Site() {
         onCloseMobileMenu={() => setMenuOpen(false)}
         onToggleMobileMenu={() => setMenuOpen((open) => !open)}
       >
-        <Routes>
+        <Routes location={location}>
           <Route
             element={<HomePage onOpenProjectDetails={openProjectDetails} onOpenVideoModal={openVideoModal} onPrefillProject={prefillProject} onSetSlide={setCurrentSlide} />}
             path="/"

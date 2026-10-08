@@ -36,12 +36,30 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   overflow-x: hidden;
   background-color: #0a0c10;
   color: #e2e8f0;
   font-family: "Plus Jakarta Sans", sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  transition: all 240ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 h1,
@@ -55,6 +73,93 @@ h4,
 h1,
 h2 {
   overflow-wrap: anywhere;
+}
+
+#root {
+  isolation: isolate;
+}
+
+.route-shell {
+  animation: route-enter 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes route-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translate3d(0, 26px, 0) scale(0.98);
+  transition-property: opacity, transform, filter, box-shadow, border-color;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, filter;
+}
+
+.reveal-left {
+  transform: translate3d(-26px, 0, 0);
+}
+
+.reveal-right {
+  transform: translate3d(26px, 0, 0);
+}
+
+.reveal-down {
+  transform: translate3d(0, 26px, 0);
+}
+
+.reveal-scale {
+  transform: scale(0.96);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.hero-word {
+  display: block;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: heroWordReveal 900ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes heroWordReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.hero-card {
+  animation: heroCardRise 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes heroCardRise {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .crimson-glass {
@@ -116,3 +221,30 @@ h2 {
 ::-webkit-scrollbar-thumb:hover {
   background: #ff4d52;
 }
+
+@media (max-width: 767px) {
+  .reveal,
+  .hero-word,
+  .hero-card {
+    transition-duration: 300ms !important;
+    animation-duration: 300ms !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .hero-word,
+  .hero-card,
+  .route-shell {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
