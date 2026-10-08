@@ -76,14 +76,14 @@ function HeroSection({ onOpenVideoModal, onPrefillProject, onSetSlide }) {
                   <h4 className="text-base font-bold text-white">Luminare Heights</h4>
                   <p className="text-xs text-gray-300"><i className="fa-solid fa-location-dot text-brandRed" /> Baner, Pune</p>
                 </div>
-                <span className="rounded-lg border border-brandRed/30 bg-black/60 px-2.5 py-1 text-xs font-bold text-brandRed backdrop-blur-sm">₹ 2.85 Cr+</span>
+                {/* <span className="rounded-lg border border-brandRed/30 bg-black/60 px-2.5 py-1 text-xs font-bold text-brandRed backdrop-blur-sm">₹ 2.85 Cr+</span> */}
               </div>
             </div>
-            <div className="mb-4 grid grid-cols-3 gap-2 text-center text-xs">
+            {/* <div className="mb-4 grid grid-cols-3 gap-2 text-center text-xs">
               <div className="rounded-xl border border-white/5 bg-darkBg/60 p-2"><span className="block text-[10px] text-gray-400">Configurations</span><span className="font-bold text-white">3, 4 & 5 BHK</span></div>
               <div className="rounded-xl border border-white/5 bg-darkBg/60 p-2"><span className="block text-[10px] text-gray-400">Possession</span><span className="font-bold text-brandRed">Dec 2026</span></div>
               <div className="rounded-xl border border-white/5 bg-darkBg/60 p-2"><span className="block text-[10px] text-gray-400">Status</span><span className="font-bold text-white">Under Const.</span></div>
-            </div>
+            </div> */}
             <motion.button whileHover={{ y: -2 }} whileTap={{ scale: 0.985 }} className="block w-full rounded-xl bg-brandRed px-3 py-3 text-center text-xs font-bold uppercase tracking-wider text-white shadow-[0_0_15px_rgba(229,37,42,0.4)] transition-all duration-300 hover:bg-brandRed-hover" onClick={() => onPrefillProject('Luminare Heights')} type="button">
               Book VIP Preview
             </motion.button>

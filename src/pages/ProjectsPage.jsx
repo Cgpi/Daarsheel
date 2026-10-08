@@ -40,10 +40,10 @@ function ProjectsPage({ onOpenProjectDetails, onPrefillProject }) {
               <div className="mb-4 flex items-center justify-between gap-4"><h2 className="text-xl font-bold text-white">{project.name}</h2><span className="text-xs font-bold uppercase text-brandRed">{project.category}</span></div>
               <p className="mb-5 flex items-center gap-2 text-sm text-gray-400"><i className="fa-solid fa-location-dot text-brandRed" /> {project.location}</p>
               <p className="mb-5 text-sm leading-relaxed text-gray-300">{project.description}</p>
-              <div className="grid grid-cols-2 gap-3 border-y border-white/10 py-4 text-xs">
+              {/* <div className="grid grid-cols-2 gap-3 border-y border-white/10 py-4 text-xs">
                 <div><span className="block text-[10px] uppercase text-gray-500">Type</span><span className="font-bold text-white">{project.type}</span></div>
                 <div><span className="block text-[10px] uppercase text-gray-500">Starting</span><span className="font-bold text-brandRed">{project.price}</span></div>
-              </div>
+              </div> */}
               <div className="mt-5 flex gap-3">
                 <button className="flex-1 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-xs font-bold uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-brandRed hover:bg-brandRed" onClick={() => onOpenProjectDetails(project.name, project.location, project.price, project.type, project.image)} type="button">View Details</button>
                 <button className="rounded-xl border border-brandRed/30 bg-brandRed/10 px-4 py-3 text-brandRed transition-all duration-300 hover:-translate-y-0.5 hover:bg-brandRed hover:text-white" onClick={() => onPrefillProject(project.name)} title="Enquire" type="button"><i className="fa-solid fa-paper-plane" /></button>
