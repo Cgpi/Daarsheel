@@ -31,7 +31,7 @@ function HeroSection({ onOpenVideoModal, onPrefillProject, onSetSlide }) {
 
           <Reveal as="h3" className="w-full max-w-full text-[1.9rem] leading-[0.96] font-extrabold tracking-tight text-white sm:max-w-[90vw] sm:text-5xl lg:max-w-[700px] lg:text-[clamp(2.75rem,4.5vw,4rem)]" delay={160} direction="hero">
             <span className="hero-word block">A LIFE BEYOND</span>
-            <span className="hero-word text-gradient-red block text-[clamp(2.25rem,4vw,3.75rem)]">IMAGINATION.</span>
+            <span className="hero-word text-gradient-red block max-sm:text-[1.75rem] text-[clamp(2.25rem,4vw,3.75rem)] sm:text-[clamp(2.5rem,4vw,3.75rem)]">IMAGINATION.</span>
             <span className="hero-word text-gradient-gold block text-[1.25rem] leading-[1.1] sm:text-5xl sm:leading-[1.1] lg:text-[clamp(2.25rem,4vw,4rem)]">REFINED<br />LUXURY.</span>
           </Reveal>
 
