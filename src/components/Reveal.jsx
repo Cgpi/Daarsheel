@@ -38,7 +38,7 @@ function Reveal({
 			className={className}
 			initial={shouldReduceMotion ? { opacity: 1, x: 0, y: 0, filter: 'blur(0px)' } : variants.hidden}
 			whileInView={shouldReduceMotion ? { opacity: 1, x: 0, y: 0, filter: 'blur(0px)' } : variants.visible}
-			viewport={{ once: true, amount }}
+			viewport={{ once: false, amount }}
 			transition={{ duration, delay: delay / 1000, ease: easeOutCubic }}
 			{...props}
 		>
