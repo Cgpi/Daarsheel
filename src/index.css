@@ -11,7 +11,7 @@
   --color-darkBorder: #1f2736;
   --color-goldAccent: #dfb15b;
   --font-sans: "Plus Jakarta Sans", sans-serif;
-  --font-heading: "Google Sans Flex", sans-serif;
+  --font-heading: "Syne", sans-serif;
   --animate-pulse-glow: pulseGlow 3s infinite ease-in-out;
   --animate-float: float 6s ease-in-out infinite;
 
@@ -66,11 +66,9 @@ h2,
 h3,
 h4,
 .font-heading {
-  font-family: "Google Sans Flex", sans-serif;
+  font-family: "Syne", sans-serif;
   font-optical-sizing: auto;
-  font-variation-settings:
-    "wght" 900,
-    "wdth" 150;
+  font-weight: 800;
   letter-spacing: normal;
 }
 

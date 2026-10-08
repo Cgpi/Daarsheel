@@ -52,6 +52,10 @@ function Site() {
   }, [])
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [location.pathname])
+
+  useEffect(() => {
     const counters = document.querySelectorAll('.counter')
     if (!counters.length) return
 
@@ -79,10 +83,6 @@ function Site() {
 
     counters.forEach((counter) => observer.observe(counter))
     return () => observer.disconnect()
-  }, [location.pathname])
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [location.pathname])
 
   const openProjectDetails = (name, locationName, price, type, image) => {
