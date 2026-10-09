@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal.jsx'
+import { directors } from '../data/company'
 
 const storyPillars = [
   { icon: 'fa-seedling', title: 'Purposeful Design', description: 'We shape spaces around how families live, work, grow, and celebrate.' },
@@ -14,6 +15,20 @@ const milestones = [
   { year: '2025', title: 'Future Forward', text: 'We continue building next-generation communities driven by sustainability and innovation.' },
 ]
 
+function DirectorPortrait({ director, index, className = '' }) {
+  return (
+    <Reveal as="article" className={`group relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/10 bg-darkBg ${className}`} delay={140 + index * 100} direction={index === 0 ? 'left' : 'right'}>
+      <img alt={director.name} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" src={director.image} />
+      <div className="absolute inset-0 bg-gradient-to-t from-darkBg via-darkBg/10 to-transparent" />
+      <p className="absolute left-3 top-3 border-l-2 border-brandRed pl-2 text-[10px] font-bold uppercase tracking-wider text-white sm:left-4 sm:top-4 sm:pl-3">Director 0{index + 1}</p>
+      <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
+        <p className="text-[10px] font-bold uppercase tracking-wider text-brandRed">{director.title}</p>
+        <h3 className="mt-1 text-sm font-extrabold leading-tight text-white sm:text-lg">{director.name}</h3>
+      </div>
+    </Reveal>
+  )
+}
+
 function AboutPage() {
   return (
     <div className="bg-darkBg text-white">
@@ -22,28 +37,22 @@ function AboutPage() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal as="div" className="max-w-4xl" delay={120} direction="hero">
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-brandRed">Our Legacy</p>
-            <h1 className="text-4xl font-extrabold leading-tight sm:text-6xl">Creating spaces that become <span className="text-gradient-red">stories for generations.</span></h1>
+            <h1 className="text-2xl font-extrabold leading-tight sm:text-6xl">Creating spaces that become <span className="text-gradient-red">stories for generations.</span></h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-300">From luxury residences to strategic business investments, we design every detail with vision, craftsmanship, and a deep respect for the people who will live, work, and thrive within it.</p>
           </Reveal>
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-          <Reveal as="div" className="lg:col-span-5" delay={140} direction="left">
-            <img alt="Daarsheel Realty team and project site" className="h-full w-full rounded-3xl object-cover shadow-[0_30px_70px_rgba(0,0,0,0.5)] transition-transform duration-800 hover:scale-[1.03]" src="/images/image-05.jpg" />
-          </Reveal>
-          <Reveal as="div" className="lg:col-span-7" delay={180} direction="right">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1.6fr)_minmax(0,1.2fr)]">
+          <DirectorPortrait className="order-1 lg:order-none" director={directors[0]} index={0} />
+          <Reveal as="div" className="order-3 min-w-0 lg:order-none" delay={180} direction="up">
             <p className="text-xs font-bold uppercase tracking-widest text-brandRed">Who We Are</p>
             <h2 className="mt-3 text-2xl font-extrabold sm:text-5xl">A builder shaped by <span className="text-gradient-red">purpose, quality, and trust.</span></h2>
             <p className="mt-6 text-base leading-relaxed text-gray-300">Daarsheel Realty is not merely a real estate company; it is a design-led enterprise driven by a philosophy of enduring elegance. Our teams combine architectural intelligence, responsible development practices, and market expertise to deliver communities that feel personal and premium.</p>
             <p className="mt-4 text-base leading-relaxed text-gray-400">We are known for our disciplined project delivery, transparent communication, and highly curated customer journeys that transform the act of buying property into an enriching life milestone.</p>
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              <Reveal as="div" className="rounded-2xl border border-white/10 bg-darkCard p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brandRed/40" delay={220} direction="up"><p className="text-2xl font-extrabold text-brandRed">25+</p><p className="mt-2 text-xs uppercase tracking-wider text-gray-400">Years of market presence</p></Reveal>
-              <Reveal as="div" className="rounded-2xl border border-white/10 bg-darkCard p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brandRed/40" delay={260} direction="up"><p className="text-2xl font-extrabold text-brandRed">18</p><p className="mt-2 text-xs uppercase tracking-wider text-gray-400">Signature developments</p></Reveal>
-              <Reveal as="div" className="rounded-2xl border border-white/10 bg-darkCard p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brandRed/40" delay={300} direction="up"><p className="text-2xl font-extrabold text-brandRed">100%</p><p className="mt-2 text-xs uppercase tracking-wider text-gray-400">Transparent dealings</p></Reveal>
-            </div>
           </Reveal>
+          <DirectorPortrait className="order-2 lg:order-none" director={directors[1]} index={1} />
         </div>
       </section>
 

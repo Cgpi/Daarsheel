@@ -12,8 +12,8 @@ function PageLayout({ children, mobileMenuOpen, onToggleMobileMenu, onCloseMobil
         onCloseMobileMenu={onCloseMobileMenu}
         onToggleMobileMenu={onToggleMobileMenu}
       />
-      <main className="pt-20 md:pt-36">
-        <div className="route-shell" key={location.pathname}>{children}</div>
+      <main className={location.pathname === '/' ? 'pt-[73px] md:pt-[126px]' : 'pt-20 md:pt-36'}>
+        <div className={`route-shell ${location.pathname === '/' ? 'home-route-shell' : ''}`} key={location.pathname}>{children}</div>
       </main>
       <Footer />
     </div>

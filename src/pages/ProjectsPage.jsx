@@ -5,7 +5,7 @@ import { projects } from '../data/company'
 
 const filterOptions = ['all', 'ongoing', 'upcoming', 'completed']
 
-function ProjectsPage({ onOpenProjectDetails, onPrefillProject }) {
+function ProjectsPage({ onOpenEnquiryModal, onOpenProjectDetails }) {
   const [activeFilter, setActiveFilter] = useState('all')
 
   const filteredProjects = useMemo(
@@ -46,7 +46,7 @@ function ProjectsPage({ onOpenProjectDetails, onPrefillProject }) {
               </div> */}
               <div className="mt-5 flex gap-3">
                 <button className="flex-1 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-xs font-bold uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-brandRed hover:bg-brandRed" onClick={() => onOpenProjectDetails(project.name, project.location, project.price, project.type, project.image)} type="button">View Details</button>
-                <button className="rounded-xl border border-brandRed/30 bg-brandRed/10 px-4 py-3 text-brandRed transition-all duration-300 hover:-translate-y-0.5 hover:bg-brandRed hover:text-white" onClick={() => onPrefillProject(project.name)} title="Enquire" type="button"><i className="fa-solid fa-paper-plane" /></button>
+                <button className="rounded-xl border border-brandRed/30 bg-brandRed/10 px-4 py-3 text-brandRed transition-all duration-300 hover:-translate-y-0.5 hover:bg-brandRed hover:text-white" onClick={() => onOpenEnquiryModal(project.name)} title="Enquire" type="button"><i className="fa-solid fa-paper-plane" /></button>
               </div>
             </div>
           </Reveal>

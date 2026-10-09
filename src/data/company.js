@@ -18,6 +18,11 @@ export const navigation = [
   { name: 'Contact', path: '/contact' },
 ]
 
+export const directors = [
+  { name: 'Mr. Darsheel Shah', image: '/images/image-05.jpg', title: 'Director' },
+  { name: 'Mr. Shah', image: '/images/image-05.jpg', title: 'Director' },
+]
+
 export const projects = [
   {
     id: 'luminare-heights',

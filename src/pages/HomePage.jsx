@@ -8,7 +8,7 @@ import ProjectsSection from '../components/home/ProjectsSection.jsx'
 import StatsSection from '../components/home/StatsSection.jsx'
 import WhyChooseSection from '../components/home/WhyChooseSection.jsx'
 
-function HomePage({ onOpenProjectDetails, onOpenVideoModal, onPrefillProject, onSetSlide }) {
+function HomePage({ onOpenEnquiryModal, onOpenProjectDetails, onOpenVideoModal, onPrefillProject, onSetSlide }) {
   return (
     <>
       <HeroSection
@@ -20,6 +20,7 @@ function HomePage({ onOpenProjectDetails, onOpenVideoModal, onPrefillProject, on
       
       <AboutSection />
       <ProjectsSection
+        onOpenEnquiryModal={onOpenEnquiryModal}
         onOpenProjectDetails={onOpenProjectDetails}
         onPrefillProject={onPrefillProject}
         projects={projects}

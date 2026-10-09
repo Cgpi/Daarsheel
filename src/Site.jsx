@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import PageLayout from './components/PageLayout.jsx'
@@ -8,6 +9,7 @@ import HomePage from './pages/HomePage.jsx'
 import ProjectsPage from './pages/ProjectsPage.jsx'
 import ReviewsPage from './pages/ReviewsPage.jsx'
 import VenturesPage from './pages/VenturesPage.jsx'
+import { easeOutCubic } from './utils/motion.js'
 
 function Site() {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -113,11 +115,11 @@ function Site() {
       >
         <Routes location={location}>
           <Route
-            element={<HomePage onOpenProjectDetails={openProjectDetails} onOpenVideoModal={openVideoModal} onPrefillProject={prefillProject} onSetSlide={setCurrentSlide} />}
+            element={<HomePage onOpenEnquiryModal={openEnquiryModal} onOpenProjectDetails={openProjectDetails} onOpenVideoModal={openVideoModal} onPrefillProject={prefillProject} onSetSlide={setCurrentSlide} />}
             path="/"
           />
           <Route element={<AboutPage />} path="/about" />
-          <Route element={<ProjectsPage onOpenProjectDetails={openProjectDetails} onPrefillProject={prefillProject} />} path="/projects" />
+          <Route element={<ProjectsPage onOpenEnquiryModal={openEnquiryModal} onOpenProjectDetails={openProjectDetails} onPrefillProject={prefillProject} />} path="/projects" />
           <Route element={<VenturesPage />} path="/ventures" />
           <Route element={<AmenitiesPage />} path="/amenities" />
           <Route element={<ReviewsPage />} path="/reviews" />
@@ -126,9 +128,10 @@ function Site() {
         </Routes>
       </PageLayout>
 
-      {project && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-4 backdrop" onClick={() => setProject(null)} role="presentation">
-          <section aria-labelledby="project-modal-title" aria-modal="true" className="crimson-glass relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-brandRed/40 p-6" onClick={(event) => event.stopPropagation()} role="dialog">
+      <AnimatePresence>
+        {project && (
+          <motion.div animate={{ opacity: 1 }} className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-4 backdrop" exit={{ opacity: 0 }} initial={{ opacity: 0 }} onClick={() => setProject(null)} role="presentation" transition={{ duration: 0.2, ease: easeOutCubic }}>
+          <motion.section animate={{ opacity: 1, scale: 1, y: 0 }} aria-labelledby="project-modal-title" aria-modal="true" className="crimson-glass relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-brandRed/40 p-6" exit={{ opacity: 0, scale: 0.98, y: 12 }} initial={{ opacity: 0, scale: 0.97, y: 20 }} onClick={(event) => event.stopPropagation()} role="dialog" transition={{ duration: 0.24, ease: easeOutCubic }}>
             <button aria-label="Close project details" className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-brandRed" onClick={() => setProject(null)} type="button">
               <i className="fa-solid fa-xmark text-sm" />
             </button>
@@ -146,13 +149,15 @@ function Site() {
             <button className="block w-full rounded-xl bg-brandRed py-3 text-center text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-all hover:bg-brandRed-hover" onClick={() => openEnquiryModal(project.name)} type="button">
               Request Floor Plan &amp; Schedule Visit
             </button>
-          </section>
-        </div>
-      )}
+          </motion.section>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      {enquiryOpen && (
-        <div className="fixed inset-0 z-[70] flex items-center justify-center bg-black/70 p-3 backdrop-blur-md sm:p-4" onClick={() => setEnquiryOpen(false)} role="presentation">
-          <section aria-labelledby="enquiry-modal-title" aria-modal="true" className="crimson-glass relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-brandRed/40 p-5 sm:p-8" onClick={(event) => event.stopPropagation()} role="dialog">
+      <AnimatePresence>
+        {enquiryOpen && (
+          <motion.div animate={{ opacity: 1 }} className="fixed inset-0 z-[70] flex items-center justify-center bg-black/70 p-3 backdrop-blur-md sm:p-4" exit={{ opacity: 0 }} initial={{ opacity: 0 }} onClick={() => setEnquiryOpen(false)} role="presentation" transition={{ duration: 0.2, ease: easeOutCubic }}>
+          <motion.section animate={{ opacity: 1, scale: 1, y: 0 }} aria-labelledby="enquiry-modal-title" aria-modal="true" className="crimson-glass relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-brandRed/40 p-5 sm:p-8" exit={{ opacity: 0, scale: 0.98, y: 12 }} initial={{ opacity: 0, scale: 0.97, y: 20 }} onClick={(event) => event.stopPropagation()} role="dialog" transition={{ duration: 0.24, ease: easeOutCubic }}>
             <button aria-label="Close enquiry form" className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-brandRed" onClick={() => setEnquiryOpen(false)} type="button">
               <i className="fa-solid fa-xmark text-sm" />
             </button>
@@ -175,20 +180,23 @@ function Site() {
                 <button className="w-full rounded-xl bg-brandRed px-7 py-3.5 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-brandRed-hover sm:w-auto" type="submit">Send enquiry</button>
               </div>
             </form>
-          </section>
-        </div>
-      )}
+          </motion.section>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      {videoOpen && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 p-3 backdrop sm:p-4" onClick={closeVideoModal} role="presentation">
-          <section aria-labelledby="legacy-video-title" aria-modal="true" className="relative flex aspect-video w-full max-w-4xl flex-col items-center justify-center overflow-y-auto rounded-2xl border border-brandRed/40 bg-darkCard p-5 text-center sm:p-8" onClick={(event) => event.stopPropagation()} role="dialog">
+      <AnimatePresence>
+        {videoOpen && (
+          <motion.div animate={{ opacity: 1 }} className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 p-3 backdrop sm:p-4" exit={{ opacity: 0 }} initial={{ opacity: 0 }} onClick={closeVideoModal} role="presentation" transition={{ duration: 0.2, ease: easeOutCubic }}>
+          <motion.section animate={{ opacity: 1, scale: 1, y: 0 }} aria-label="Daarsheel Realty Legacy Film" aria-modal="true" className="relative aspect-video w-full max-w-4xl overflow-hidden rounded-2xl border border-brandRed/40 bg-black" exit={{ opacity: 0, scale: 0.98, y: 12 }} initial={{ opacity: 0, scale: 0.97, y: 20 }} onClick={(event) => event.stopPropagation()} role="dialog" transition={{ duration: 0.24, ease: easeOutCubic }}>
             <button aria-label="Close legacy film" className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-brandRed text-white shadow-lg sm:right-4 sm:top-4 sm:h-10 sm:w-10" onClick={closeVideoModal} type="button"><i className="fa-solid fa-xmark text-lg" /></button>
-            <i className="fa-solid fa-circle-play mb-3 animate-pulse text-5xl text-brandRed sm:mb-4 sm:text-6xl" />
-            <h2 className="mb-2 max-w-full text-[clamp(1.25rem,5vw,2rem)] font-bold leading-tight text-white" id="legacy-video-title">Daarsheel Realty Legacy Film</h2>
-            <p className="max-w-md text-[clamp(0.75rem,3.2vw,0.875rem)] leading-relaxed text-gray-400">Experience 25 years of luxury real estate excellence and world-class craftsmanship.</p>
-          </section>
-        </div>
-      )}
+            <video aria-label="Daarsheel Realty Legacy Film" autoPlay className="h-full w-full object-contain" controls playsInline>
+              <source src="/HeroVideo/HeroVideo.mp4" type="video/mp4" />
+            </video>
+          </motion.section>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   )
 }

@@ -1,24 +1,26 @@
-import { Link } from 'react-router-dom'
 import Reveal from '../Reveal.jsx'
+import { directors } from '../../data/company.js'
 
 function AboutSection() {
   return (
     <section className="relative overflow-hidden bg-darkBg py-24" id="about">
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-          <div className="relative lg:col-span-5">
-            <Reveal as="div" className="crimson-glass relative overflow-hidden rounded-3xl border border-brandRed/30 p-3 shadow-[0_0_50px_rgba(229,37,42,0.2)]" delay={120} direction="left">
-              <div className="aspect-[4/5] overflow-hidden rounded-2xl">
-                <img alt="Daarsheel Realty leadership" className="h-full w-full object-cover transition-transform duration-800 hover:scale-[1.03]" src="/images/image-05.jpg" />
-                <div className="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent opacity-90" />
-              </div>
-              <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/10 bg-darkBg/70 p-5 backdrop-blur-lg">
-                <p className="mb-1 text-xs font-bold uppercase tracking-widest text-brandRed">Founders & Leadership</p>
-                <h4 className="text-lg font-bold text-white">Mr. Darsheel Shah & Directors</h4>
-                <p className="mt-1 text-xs italic text-gray-300">“Building not just structures, but living inheritances of unmatched luxury.”</p>
-              </div>
-            </Reveal>
-            <div className="pointer-events-none absolute -bottom-8 -right-8 h-48 w-48 rounded-full bg-brandRed/20 blur-3xl" />
+          <div className="lg:col-span-5">
+            <Reveal as="p" className="mb-4 text-xs font-bold uppercase tracking-widest text-brandRed" delay={120} direction="left">Meet Our Directors</Reveal>
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              {directors.map((director, index) => (
+                <Reveal as="article" className="overflow-hidden rounded-2xl border border-white/10 bg-darkCard" delay={180 + index * 100} direction="up" key={director.name}>
+                  <div className="aspect-[4/5] overflow-hidden bg-darkBg">
+                    <img alt={director.name} className="h-full w-full object-cover" src={director.image} />
+                  </div>
+                  <div className="border-t border-white/10 p-3 sm:p-4">
+                    <h3 className="text-sm font-bold leading-tight text-white sm:text-base">{director.name}</h3>
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-brandRed">{director.title}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
           <div className="flex flex-col space-y-6 lg:col-span-7">
             <Reveal as="div" className="inline-flex items-center gap-2" delay={140} direction="up"><span className="h-0.5 w-8 bg-brandRed" /><span className="text-xs font-bold uppercase tracking-widest text-brandRed">Our Legacy & Commitment</span></Reveal>
@@ -29,7 +31,7 @@ function AboutSection() {
               <Reveal as="div" className="flex items-start gap-3 rounded-2xl border border-white/5 bg-darkCard p-4 transition-all duration-300 hover:-translate-y-1 hover:border-brandRed/30" delay={380} direction="up"><div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-brandRed/30 bg-brandRed/10 text-brandRed"><i className="fa-solid fa-compass-drafting text-lg" /></div><div><h5 className="text-sm font-bold text-white">Architectural Perfection</h5><p className="mt-1 text-xs text-gray-400">Bespoke luxury designs by world-renowned architects.</p></div></Reveal>
               <Reveal as="div" className="flex items-start gap-3 rounded-2xl border border-white/5 bg-darkCard p-4 transition-all duration-300 hover:-translate-y-1 hover:border-brandRed/30" delay={440} direction="up"><div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-brandRed/30 bg-brandRed/10 text-brandRed"><i className="fa-solid fa-handshake-angle text-lg" /></div><div><h5 className="text-sm font-bold text-white">Unwavering Integrity</h5><p className="mt-1 text-xs text-gray-400">100% transparent pricing and clear title deeds.</p></div></Reveal>
             </div>
-            <Reveal as={Link} className="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-brandRed transition-colors hover:text-white" delay={500} direction="up" to="/contact"><span>Discover Our Corporate Brochure</span><i className="fa-solid fa-download text-xs transition-transform group-hover:translate-x-1" /></Reveal>
+            <Reveal as="a" className="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-brandRed transition-colors hover:text-white" delay={500} direction="up" href="/pdf/DaarsheelRealty.pdf" rel="noreferrer" target="_blank"><span>Discover Our Corporate Brochure</span><i className="fa-solid fa-download text-xs transition-transform group-hover:translate-x-1" /></Reveal>
           </div>
         </div>
       </div>

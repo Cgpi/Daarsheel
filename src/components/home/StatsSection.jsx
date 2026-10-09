@@ -1,7 +1,7 @@
 import Reveal from '../Reveal.jsx'
 
 const stats = [
-  { value: 350000, icon: 'fa-building', label: 'Sq.Ft Delivered', detail: 'Mastercrafted Living Spaces' },
+  { value: 500000, icon: 'fa-building', label: 'Sq.Ft Delivered', detail: 'Mastercrafted Living Spaces' },
   { value: 25, icon: 'fa-award', label: 'Years of Trust', detail: 'Uncompromising Legacy' },
   { value: 1500, icon: 'fa-users', label: 'Happy Families', detail: 'Thriving Communities' },
   { value: 18, icon: 'fa-gem', label: 'Landmark Projects', detail: 'Across Pune & Maharashtra' },

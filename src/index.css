@@ -86,6 +86,10 @@ h2 {
   animation: route-enter 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+.home-route-shell {
+  animation-name: route-enter-home;
+}
+
 @keyframes route-enter {
   0% {
     opacity: 0;
@@ -95,6 +99,17 @@ h2 {
   100% {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes route-enter-home {
+  0% {
+    opacity: 0;
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
     filter: blur(0);
   }
 }

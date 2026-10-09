@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Reveal from '../Reveal.jsx'
 
-function ProjectsSection({ projects, onOpenProjectDetails, onPrefillProject }) {
+function ProjectsSection({ projects, onOpenEnquiryModal, onOpenProjectDetails }) {
   return (
     <section className="border-t border-brandRed/20 bg-darkCard py-24" id="projects">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -21,7 +21,7 @@ function ProjectsSection({ projects, onOpenProjectDetails, onPrefillProject }) {
               {/* <div><span className="block text-[10px] uppercase text-gray-500">Type</span><span className="font-bold text-white">{project.type}</span></div> */}
               {/* <div><span className="block text-[10px] uppercase text-gray-500">Starting Price</span><span className="font-bold text-brandRed">{project.price}</span></div> */}
               {/* </div> */}
-              <div className="flex items-center gap-3"><button className="flex-1 rounded-xl border border-white/10 bg-white/5 py-2.5 text-center text-xs font-bold uppercase text-white transition-all hover:border-brandRed hover:bg-brandRed" onClick={() => onOpenProjectDetails(project.name, project.location, project.price, project.type, project.image)} type="button">Details & Layout</button><button className="rounded-xl border border-brandRed/30 bg-brandRed/20 p-2.5 text-brandRed transition-all hover:bg-brandRed hover:text-white" onClick={() => onPrefillProject(project.name)} title="Enquire" type="button"><i className="fa-solid fa-paper-plane text-xs" /></button></div></div>
+              <div className="flex items-center gap-3"><button className="flex-1 rounded-xl border border-white/10 bg-white/5 py-2.5 text-center text-xs font-bold uppercase text-white transition-all hover:border-brandRed hover:bg-brandRed" onClick={() => onOpenProjectDetails(project.name, project.location, project.price, project.type, project.image)} type="button">Details & Layout</button><button className="rounded-xl border border-brandRed/30 bg-brandRed/20 p-2.5 text-brandRed transition-all hover:bg-brandRed hover:text-white" onClick={() => onOpenEnquiryModal(project.name)} title="Enquire" type="button"><i className="fa-solid fa-paper-plane text-xs" /></button></div></div>
             </Reveal>
           ))}
         </div>
