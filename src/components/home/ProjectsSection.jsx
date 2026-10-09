@@ -8,7 +8,7 @@ function ProjectsSection({ projects, onOpenProjectDetails, onPrefillProject }) {
         <Reveal as="div" className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end" delay={120} direction="up">
           <div>
             <div className="mb-2 inline-flex items-center gap-2"><span className="h-0.5 w-8 bg-brandRed" /><span className="text-xs font-bold uppercase tracking-widest text-brandRed">Featured Portfolio</span></div>
-            <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">Exquisite <span className="text-gradient-red">Residences & Towers</span></h2>
+            <h2 className="text-2xl font-extrabold tracking-tight text-white sm:text-5xl">Exquisite <span className="text-gradient-red">Residences & Towers</span></h2>
           </div>
           <Link className="text-sm font-bold uppercase tracking-wider text-brandRed hover:text-white" to="/projects">View All Projects</Link>
         </Reveal>

@@ -16,7 +16,7 @@ function StatsSection() {
             <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl border border-brandRed/30 bg-brandRed/10 text-brandRed transition-all duration-300 group-hover:scale-110 group-hover:bg-brandRed group-hover:text-white">
               <i className={`fa-solid ${stat.icon} text-xl`} />
             </div>
-            <span className="counter text-3xl font-extrabold tracking-tight text-white sm:text-4xl" data-target={stat.value}>0</span>
+            <span className="counter text-2xl font-extrabold tracking-tight text-white sm:text-4xl" data-target={stat.value}>0</span>
             <span className="mt-1 text-xs font-bold uppercase tracking-widest text-brandRed">{stat.label}</span>
             <p className="mt-1 text-xs text-gray-400">{stat.detail}</p>
           </Reveal>

@@ -22,7 +22,7 @@ function AboutSection() {
           </div>
           <div className="flex flex-col space-y-6 lg:col-span-7">
             <Reveal as="div" className="inline-flex items-center gap-2" delay={140} direction="up"><span className="h-0.5 w-8 bg-brandRed" /><span className="text-xs font-bold uppercase tracking-widest text-brandRed">Our Legacy & Commitment</span></Reveal>
-            <Reveal as="h2" className="text-3xl font-extrabold leading-tight text-white sm:text-5xl" delay={200} direction="up">Rooted in Trust.<br /><span className="text-gradient-red">Built for Generations.</span></Reveal>
+            <Reveal as="h2" className="text-2xl font-extrabold leading-tight text-white sm:text-5xl" delay={200} direction="up">Rooted in Trust.<br /><span className="text-gradient-red">Built for Generations.</span></Reveal>
             <Reveal as="p" className="text-base leading-relaxed text-gray-300" delay={260} direction="up">For over two decades, Daarsheel Realty has stood as Pune’s beacon of luxury real estate development. We fuse timeless architectural elegance with modern engineering precision to create residential and commercial icons that transcend trend and time.</Reveal>
             <Reveal as="p" className="text-sm leading-relaxed text-gray-400" delay={320} direction="up">Every foundation we lay is backed by transparent ethics, uncompromising material quality, and an unwavering commitment to deliver on time, every time.</Reveal>
             <div className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2">

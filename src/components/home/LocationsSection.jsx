@@ -24,7 +24,7 @@ function LocationsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal as="div" className="mb-14 text-center" delay={120} direction="up">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-brandRed">Addressed across Pune</p>
-          <h2 className="mt-4 text-3xl font-extrabold text-white sm:text-5xl">Exceptional living in <span className="text-gradient-red">Pune’s most sought-after neighborhoods</span></h2>
+          <h2 className="mt-4 text-2xl font-extrabold text-white sm:text-5xl">Exceptional living in <span className="text-gradient-red">Pune’s most sought-after neighborhoods</span></h2>
         </Reveal>
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">

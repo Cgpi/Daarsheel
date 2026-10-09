@@ -35,13 +35,13 @@ function AboutPage() {
           </Reveal>
           <Reveal as="div" className="lg:col-span-7" delay={180} direction="right">
             <p className="text-xs font-bold uppercase tracking-widest text-brandRed">Who We Are</p>
-            <h2 className="mt-3 text-3xl font-extrabold sm:text-5xl">A builder shaped by <span className="text-gradient-red">purpose, quality, and trust.</span></h2>
+            <h2 className="mt-3 text-2xl font-extrabold sm:text-5xl">A builder shaped by <span className="text-gradient-red">purpose, quality, and trust.</span></h2>
             <p className="mt-6 text-base leading-relaxed text-gray-300">Daarsheel Realty is not merely a real estate company; it is a design-led enterprise driven by a philosophy of enduring elegance. Our teams combine architectural intelligence, responsible development practices, and market expertise to deliver communities that feel personal and premium.</p>
             <p className="mt-4 text-base leading-relaxed text-gray-400">We are known for our disciplined project delivery, transparent communication, and highly curated customer journeys that transform the act of buying property into an enriching life milestone.</p>
             <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              <Reveal as="div" className="rounded-2xl border border-white/10 bg-darkCard p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brandRed/40" delay={220} direction="up"><p className="text-3xl font-extrabold text-brandRed">25+</p><p className="mt-2 text-xs uppercase tracking-wider text-gray-400">Years of market presence</p></Reveal>
-              <Reveal as="div" className="rounded-2xl border border-white/10 bg-darkCard p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brandRed/40" delay={260} direction="up"><p className="text-3xl font-extrabold text-brandRed">18</p><p className="mt-2 text-xs uppercase tracking-wider text-gray-400">Signature developments</p></Reveal>
-              <Reveal as="div" className="rounded-2xl border border-white/10 bg-darkCard p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brandRed/40" delay={300} direction="up"><p className="text-3xl font-extrabold text-brandRed">100%</p><p className="mt-2 text-xs uppercase tracking-wider text-gray-400">Transparent dealings</p></Reveal>
+              <Reveal as="div" className="rounded-2xl border border-white/10 bg-darkCard p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brandRed/40" delay={220} direction="up"><p className="text-2xl font-extrabold text-brandRed">25+</p><p className="mt-2 text-xs uppercase tracking-wider text-gray-400">Years of market presence</p></Reveal>
+              <Reveal as="div" className="rounded-2xl border border-white/10 bg-darkCard p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brandRed/40" delay={260} direction="up"><p className="text-2xl font-extrabold text-brandRed">18</p><p className="mt-2 text-xs uppercase tracking-wider text-gray-400">Signature developments</p></Reveal>
+              <Reveal as="div" className="rounded-2xl border border-white/10 bg-darkCard p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brandRed/40" delay={300} direction="up"><p className="text-2xl font-extrabold text-brandRed">100%</p><p className="mt-2 text-xs uppercase tracking-wider text-gray-400">Transparent dealings</p></Reveal>
             </div>
           </Reveal>
         </div>
@@ -51,7 +51,7 @@ function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-brandRed">Our foundations</p>
-            <h2 className="mt-3 text-3xl font-extrabold sm:text-5xl">The values behind every landmark.</h2>
+            <h2 className="mt-3 text-2xl font-extrabold sm:text-5xl">The values behind every landmark.</h2>
           </div>
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             {storyPillars.map((pillar, index) => (
@@ -68,13 +68,13 @@ function AboutPage() {
       <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-brandRed">Our Journey</p>
-          <h2 className="mt-3 text-3xl font-extrabold sm:text-5xl">Milestones that shaped our legacy.</h2>
+          <h2 className="mt-3 text-2xl font-extrabold sm:text-5xl">Milestones that shaped our legacy.</h2>
         </div>
         <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {milestones.map((milestone, index) => (
             <Reveal as="article" className="relative overflow-hidden rounded-3xl border border-white/10 bg-darkCard p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brandRed/30" delay={index * 90 + 160} direction={index % 2 === 0 ? 'up' : 'left'} key={milestone.year}>
               <div className="absolute right-0 top-0 h-24 w-24 rounded-bl-full bg-brandRed/15" />
-              <p className="text-3xl font-extrabold text-brandRed">{milestone.year}</p>
+              <p className="text-2xl font-extrabold text-brandRed">{milestone.year}</p>
               <h3 className="mt-5 text-lg font-bold text-white">{milestone.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-gray-400">{milestone.text}</p>
             </Reveal>
@@ -85,7 +85,7 @@ function AboutPage() {
       <section className="border-t border-white/10 bg-darkCard py-24">
         <Reveal as="div" className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8" delay={180} direction="up">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-brandRed">A promise</p>
-          <h2 className="mt-4 text-3xl font-extrabold sm:text-5xl">The future deserves spaces built with care.</h2>
+          <h2 className="mt-4 text-2xl font-extrabold sm:text-5xl">The future deserves spaces built with care.</h2>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-gray-300">Let’s create something extraordinary together — a home, an investment, or a project that reflects your ambition and stands the test of time.</p>
           <Link className="mt-8 inline-flex items-center gap-3 rounded-full bg-brandRed px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-brandRed-hover" to="/contact">Schedule a private consultation <i className="fa-solid fa-arrow-right-long" /></Link>
         </Reveal>

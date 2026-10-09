@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { company, navigation } from '../data/company'
@@ -15,9 +15,23 @@ function Header({ mobileMenuOpen, onToggleMobileMenu, onCloseMobileMenu }) {
   }, [])
 
   return (
-    <header
+    <>
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.button
+            animate={{ opacity: 1 }}
+            aria-label="Close navigation menu"
+            className="fixed inset-0 z-40 border-0 bg-black/60 backdrop-blur-sm md:hidden"
+            exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
+            onClick={onCloseMobileMenu}
+            type="button"
+          />
+        )}
+      </AnimatePresence>
+      <header
       id="main-header"
-      className={`fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md transition-all duration-500 ${
+      className={`fixed inset-x-0 top-0 z-[60] border-b backdrop-blur-md transition-all duration-500 ${
         scrolled
           ? 'border-white/10 bg-darkBg/90 py-3 shadow-[0_18px_45px_rgba(0,0,0,0.25)]'
           : 'border-white/5 bg-darkBg/80 py-4'
@@ -49,8 +63,17 @@ function Header({ mobileMenuOpen, onToggleMobileMenu, onCloseMobileMenu }) {
             </motion.div>
           </div>
 
-          <button aria-label="Toggle Menu" className="p-2 text-2xl text-white focus:outline-none md:hidden" onClick={onToggleMobileMenu} type="button">
-            <i className="fa-solid fa-bars-staggered text-brandRed" />
+          <button aria-controls="mobile-navigation" aria-expanded={mobileMenuOpen} aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'} className="flex h-10 w-10 items-center justify-center text-white focus:outline-none md:hidden" onClick={onToggleMobileMenu} type="button">
+            <AnimatePresence initial={false} mode="wait">
+              <motion.i
+                animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                className={`fa-solid ${mobileMenuOpen ? 'fa-xmark' : 'fa-bars-staggered'} text-2xl text-brandRed`}
+                exit={{ opacity: 0, rotate: mobileMenuOpen ? 90 : -90, scale: 0.8 }}
+                initial={{ opacity: 0, rotate: mobileMenuOpen ? -90 : 90, scale: 0.8 }}
+                key={mobileMenuOpen ? 'close' : 'menu'}
+                transition={{ duration: 0.18 }}
+              />
+            </AnimatePresence>
           </button>
         </div>
 
@@ -68,29 +91,41 @@ function Header({ mobileMenuOpen, onToggleMobileMenu, onCloseMobileMenu }) {
         </motion.nav>
       </div>
 
-      <div className={`${mobileMenuOpen ? 'block' : 'hidden'} border-b border-brandRed/20 bg-darkCard px-6 py-6 md:hidden`}>
-        <nav className="flex flex-col gap-4 text-base font-semibold">
-          {navigation.map((item) => (
-            <NavLink
-              className={({ isActive }) => `transition-colors ${isActive ? 'text-brandRed' : 'text-gray-300 hover:text-brandRed'}`}
-              key={item.path}
-              onClick={onCloseMobileMenu}
-              to={item.path}
-            >
-              {item.name}
-            </NavLink>
-          ))}
-          <a className="mt-2 border-t border-white/10 pt-4 text-sm font-semibold text-gray-300" href={company.phoneHref}>
-            <i className="fa-solid fa-phone text-brandRed" /> {company.phone}
-          </a>
-          <motion.div whileHover={softButton.hover} whileTap={softButton.tap} initial={softButton.rest} animate={softButton.rest}>
-            <Link className="w-full rounded-full bg-brandRed px-6 py-3 text-center text-xs font-bold uppercase tracking-wider text-white" onClick={onCloseMobileMenu} to="/contact">
-              Enquire Now
-            </Link>
+      </header>
+      <AnimatePresence initial={false}>
+        {mobileMenuOpen && (
+          <motion.div
+            animate={{ x: 0, opacity: 1 }}
+            className="fixed inset-y-0 right-0 z-50 h-dvh w-[85vw] max-w-sm overflow-y-auto border-l border-brandRed/20 bg-darkCard shadow-2xl md:hidden"
+            exit={{ x: '100%', opacity: 0 }}
+            id="mobile-navigation"
+            initial={{ x: '100%', opacity: 0 }}
+            transition={{ duration: 0.3, ease: easeOutCubic }}
+          >
+            <nav className="flex flex-col gap-4 px-6 pb-6 pt-24 text-base font-semibold">
+              {navigation.map((item) => (
+                <NavLink
+                  className={({ isActive }) => `transition-colors ${isActive ? 'text-brandRed' : 'text-gray-300 hover:text-brandRed'}`}
+                  key={item.path}
+                  onClick={onCloseMobileMenu}
+                  to={item.path}
+                >
+                  {item.name}
+                </NavLink>
+              ))}
+              <a className="mt-2 border-t border-white/10 pt-4 text-sm font-semibold text-gray-300" href={company.phoneHref}>
+                <i className="fa-solid fa-phone text-brandRed" /> {company.phone}
+              </a>
+              <motion.div whileHover={softButton.hover} whileTap={softButton.tap} initial={softButton.rest} animate={softButton.rest}>
+                <Link className="w-full rounded-full bg-brandRed px-6 py-3 text-center text-xs font-bold uppercase tracking-wider text-white" onClick={onCloseMobileMenu} to="/contact">
+                  Enquire Now
+                </Link>
+              </motion.div>
+            </nav>
           </motion.div>
-        </nav>
-      </div>
-    </header>
+        )}
+      </AnimatePresence>
+    </>
   )
 }
 

@@ -158,7 +158,7 @@ function Site() {
             </button>
             <div className="mb-6 border-b border-white/10 pb-5">
               <p className="text-xs font-bold uppercase tracking-wider text-brandRed">Request a callback</p>
-              <h2 className="mt-2 text-2xl font-extrabold text-white sm:text-3xl" id="enquiry-modal-title">Tell us about your requirement</h2>
+              <h2 className="mt-2 text-2xl font-extrabold text-white sm:text-2xl" id="enquiry-modal-title">Tell us about your requirement</h2>
               <p className="mt-2 text-sm leading-relaxed text-gray-400">Our sales team will contact you with floor plans, pricing, and a personalised consultation.</p>
             </div>
             <form className="grid grid-cols-1 gap-4 sm:grid-cols-2" onSubmit={(event) => {

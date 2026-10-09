@@ -21,7 +21,7 @@ function AmenitiesPage() {
 
       <Reveal as="section" className="mt-20 rounded-3xl border border-brandRed/20 bg-darkCard p-8 sm:p-12" delay={220} direction="up">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          <div><p className="text-xs font-bold uppercase tracking-[0.3em] text-brandRed">The Daarsheel difference</p><h2 className="mt-3 text-3xl font-extrabold sm:text-5xl">Comfort designed around your daily rituals.</h2></div>
+          <div><p className="text-xs font-bold uppercase tracking-[0.3em] text-brandRed">The Daarsheel difference</p><h2 className="mt-3 text-2xl font-extrabold sm:text-5xl">Comfort designed around your daily rituals.</h2></div>
           <div className="grid grid-cols-2 gap-4 text-sm text-gray-300">
             <div className="rounded-2xl border border-white/10 bg-darkBg p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brandRed/40"><i className="fa-solid fa-mug-hot text-brandRed" /><p className="mt-3 font-bold text-white">Residents Lounge</p></div>
             <div className="rounded-2xl border border-white/10 bg-darkBg p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brandRed/40"><i className="fa-solid fa-person-swimming text-brandRed" /><p className="mt-3 font-bold text-white">Pool Deck</p></div>

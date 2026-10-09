@@ -35,7 +35,7 @@ function ProcessSection() {
         <Reveal as="div" className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end" delay={120} direction="up">
           <div className="max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-brandRed">How it works</p>
-            <h2 className="mt-4 text-3xl font-extrabold text-white sm:text-5xl">A simpler journey from <span className="text-gradient-red">first enquiry to final handover</span></h2>
+            <h2 className="mt-4 text-2xl font-extrabold text-white sm:text-5xl">A simpler journey from <span className="text-gradient-red">first enquiry to final handover</span></h2>
           </div>
           <Link className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-brandRed hover:text-white" to="/contact">
             Talk to our advisors <i className="fa-solid fa-arrow-right-long" />
