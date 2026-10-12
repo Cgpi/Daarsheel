@@ -6,8 +6,10 @@ import AboutPage from './pages/AboutPage.jsx'
 import AmenitiesPage from './pages/AmenitiesPage.jsx'
 import ContactPage from './pages/ContactPage.jsx'
 import HomePage from './pages/HomePage.jsx'
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage.jsx'
 import ProjectsPage from './pages/ProjectsPage.jsx'
 import ReviewsPage from './pages/ReviewsPage.jsx'
+import TermsOfServicePage from './pages/TermsOfServicePage.jsx'
 import VenturesPage from './pages/VenturesPage.jsx'
 import { easeOutCubic } from './utils/motion.js'
 
@@ -123,6 +125,8 @@ function Site() {
           <Route element={<VenturesPage />} path="/ventures" />
           <Route element={<AmenitiesPage />} path="/amenities" />
           <Route element={<ReviewsPage />} path="/reviews" />
+          <Route element={<PrivacyPolicyPage />} path="/privacy-policy" />
+          <Route element={<TermsOfServicePage />} path="/terms-of-service" />
           <Route element={<ContactPage />} path="/contact" />
           <Route element={<Navigate replace to="/" />} path="*" />
         </Routes>

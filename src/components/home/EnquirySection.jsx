@@ -13,7 +13,7 @@ function EnquirySection() {
           <Link className="rounded-full bg-brandRed px-8 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-[0_0_25px_rgba(229,37,42,0.4)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-brandRed-hover hover:shadow-[0_0_35px_rgba(229,37,42,0.7)]" to="/contact">
             Schedule a consultation
           </Link>
-          <a className="rounded-full border border-white/15 bg-darkBg px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:border-brandRed hover:text-brandRed" href="tel:+919876543210">
+          <a className="rounded-full border border-white/15 bg-darkBg px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:border-brandRed hover:text-brandRed" href="tel:+917030409118">
             Call sales desk
           </a>
         </Reveal>

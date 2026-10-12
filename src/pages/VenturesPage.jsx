@@ -6,7 +6,7 @@ function VenturesPage() {
     <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
       <Reveal as="div" className="max-w-3xl" delay={120} direction="hero">
         <p className="text-xs font-bold uppercase tracking-[0.3em] text-brandRed">Our ventures</p>
-        <h1 className="mt-3 text-4xl font-extrabold sm:text-6xl">A portfolio built on <span className="text-gradient-red">diversified excellence.</span></h1>
+        <h1 className="mt-3 text-2xl font-extrabold sm:text-6xl">A portfolio built on <span className="text-gradient-red">diversified excellence.</span></h1>
         <p className="mt-5 text-lg leading-relaxed text-gray-300">Beyond real estate, Daarsheel Realty creates value across hospitality, leisure, and strategic advisory sectors through thoughtful partnerships and premium experiences.</p>
       </Reveal>
       <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">

@@ -33,7 +33,9 @@ function AboutPage() {
   return (
     <div className="bg-darkBg text-white">
       <section className="relative overflow-hidden border-b border-white/10 py-28">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(229,37,42,0.2),transparent_35%)]" />
+        <img alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-center" src="/images/image-02.jpg" />
+        <div className="absolute inset-0 bg-gradient-to-r from-darkBg/95 via-darkBg/70 to-darkBg/35" />
+        <div className="absolute inset-0 bg-gradient-to-t from-darkBg/70 via-transparent to-darkBg/30" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal as="div" className="max-w-4xl" delay={120} direction="hero">
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-brandRed">Our Legacy</p>

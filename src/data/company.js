@@ -2,8 +2,8 @@ export const company = {
   name: 'Daarsheel Realty',
   shortName: 'Daarsheel',
   tagline: 'Luxury Real Estate',
-  phone: '+91 98765 43210',
-  phoneHref: 'tel:+919876543210',
+  phone: '+91 70304 09118',
+  phoneHref: 'tel:+917030409118',
   email: 'sales@daarsheelrealty.com',
   address: 'Daarsheel Realty Towers, Suite 801, Baner Road, Pune, Maharashtra 411045',
 }

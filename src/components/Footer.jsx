@@ -105,12 +105,12 @@ function Footer() {
             © {currentYear} {company.name}. All rights reserved.
           </p>
           <div className="mt-2 flex items-center gap-4 md:mt-0">
-            <a className="hover:text-brandRed" href="#">
+            <Link className="hover:text-brandRed" to="/privacy-policy">
               Privacy Policy
-            </a>
-            <a className="hover:text-brandRed" href="#">
+            </Link>
+            <Link className="hover:text-brandRed" to="/terms-of-service">
               Terms of Service
-            </a>
+            </Link>
           </div>
         </Reveal>
       </div>

@@ -41,12 +41,17 @@ function Header({ mobileMenuOpen, onToggleMobileMenu, onCloseMobileMenu }) {
         <div className="flex items-center justify-between gap-4">
           <Link to="/" className="group flex min-w-0 items-center gap-2 sm:gap-3" onClick={onCloseMobileMenu}>
             <img alt="Daarsheel Realty logo" className="h-10 w-8 object-contain transition-transform duration-300 group-hover:scale-105 sm:h-12 sm:w-10" src="/images/logo/logo.png" />
-            <div className="flex flex-col">
-              <span className="font-heading flex items-center gap-1 text-sm font-bold tracking-[0.08em] text-white transition-colors group-hover:text-brandRed sm:gap-1.5 sm:text-2xl sm:tracking-widest">
-                DAARSHEEL <span className="text-brandRed">REALTY</span>
-              </span>
-              <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-gray-400">{company.tagline}</span>
-            </div>
+            
+<div className="min-w-0 flex flex-col">
+  <span className="font-heading flex items-center gap-1 whitespace-nowrap text-[11px] font-bold tracking-[0.04em] text-white transition-colors group-hover:text-brandRed xs:text-xs sm:gap-1.5 sm:text-lg sm:tracking-[0.08em] lg:text-2xl lg:tracking-widest">
+    DAARSHEEL <span className="text-brandRed">REALTY</span>
+  </span>
+
+  <span className="truncate text-[7px] font-medium uppercase tracking-[0.12em] text-gray-400 sm:text-[9px] sm:tracking-[0.2em] lg:text-[10px] lg:tracking-[0.25em]">
+    {company.tagline}
+  </span>
+</div>
+
           </Link>
 
           <div className="hidden items-center gap-5 lg:flex">

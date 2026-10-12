@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
 const contactOptions = [
-  { icon: 'fa-phone', title: 'Call our sales desk', detail: '+91 98765 43210', href: 'tel:+919876543210' },
+  { icon: 'fa-phone', title: 'Call our sales desk', detail: '+91 70304 09118', href: 'tel:+917030409118' },
   { icon: 'fa-envelope', title: 'Email us', detail: 'sales@daarsheelrealty.com', href: 'mailto:sales@daarsheelrealty.com' },
   { icon: 'fa-location-dot', title: 'Visit our office', detail: 'Baner Road, Pune, Maharashtra', href: '#' },
 ]
@@ -29,7 +29,7 @@ function ContactPage() {
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-brandRed">Contact us</p>
-          <h1 className="mt-4 text-4xl font-extrabold sm:text-6xl">Let’s discuss your next <span className="text-gradient-red">signature address.</span></h1>
+          <h1 className="mt-4 text-4xl font-extrabold sm:text-5xl">Let’s discuss your next <span className="text-gradient-red">signature address.</span></h1>
           <p className="mt-6 text-lg leading-relaxed text-gray-300">Speak with our real estate specialists to explore residences, investments, hospitality opportunities, and custom property requirements.</p>
           <div className="mt-8 space-y-4">
             {contactOptions.map((option) => (
