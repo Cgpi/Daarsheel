@@ -1,5 +1,5 @@
 import Reveal from '../Reveal.jsx'
-import { directors } from '../../data/company.js'
+import { founders } from '../../data/company.js'
 
 function AboutSection() {
   return (
@@ -7,16 +7,16 @@ function AboutSection() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Reveal as="p" className="mb-4 text-xs font-bold uppercase tracking-widest text-brandRed" delay={120} direction="left">Meet Our Directors</Reveal>
+            <Reveal as="p" className="mb-4 text-xs font-bold uppercase tracking-widest text-brandRed" delay={120} direction="left">Meet Our Founders</Reveal>
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              {directors.map((director, index) => (
-                <Reveal as="article" className="overflow-hidden rounded-2xl border border-white/10 bg-darkCard" delay={180 + index * 100} direction="up" key={director.name}>
+              {founders.map((founder, index) => (
+                <Reveal as="article" className="overflow-hidden rounded-2xl border border-white/10 bg-darkCard" delay={180 + index * 100} direction="up" key={founder.name}>
                   <div className="aspect-[4/5] overflow-hidden bg-darkBg">
-                    <img alt={director.name} className="h-full w-full object-cover" src={director.image} />
+                    <img alt={founder.name} className="h-full w-full object-cover" src={founder.image} />
                   </div>
                   <div className="border-t border-white/10 p-3 sm:p-4">
-                    <h3 className="text-sm font-bold leading-tight text-white sm:text-base">{director.name}</h3>
-                    <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-brandRed">{director.title}</p>
+                    <h3 className="text-sm font-bold leading-tight text-white sm:text-base">{founder.name}</h3>
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-brandRed">{founder.title}</p>
                   </div>
                 </Reveal>
               ))}

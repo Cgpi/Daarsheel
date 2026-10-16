@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal.jsx'
-import { directors } from '../data/company'
+import { founders } from '../data/company'
 
 const storyPillars = [
   { icon: 'fa-seedling', title: 'Purposeful Design', description: 'We shape spaces around how families live, work, grow, and celebrate.' },
@@ -15,15 +15,14 @@ const milestones = [
   { year: '2025', title: 'Future Forward', text: 'We continue building next-generation communities driven by sustainability and innovation.' },
 ]
 
-function DirectorPortrait({ director, index, className = '' }) {
+function FounderPortrait({ founder, index, className = '' }) {
   return (
     <Reveal as="article" className={`group relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/10 bg-darkBg ${className}`} delay={140 + index * 100} direction={index === 0 ? 'left' : 'right'}>
-      <img alt={director.name} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" src={director.image} />
+      <img alt={founder.name} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" src={founder.image} />
       <div className="absolute inset-0 bg-gradient-to-t from-darkBg via-darkBg/10 to-transparent" />
-      <p className="absolute left-3 top-3 border-l-2 border-brandRed pl-2 text-[10px] font-bold uppercase tracking-wider text-white sm:left-4 sm:top-4 sm:pl-3">Director 0{index + 1}</p>
+      <p className="absolute left-3 top-3 border-l-2 border-brandRed pl-2 text-[10px] font-bold uppercase tracking-wider text-white sm:left-4 sm:top-4 sm:pl-3">{founder.title}</p>
       <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
-        <p className="text-[10px] font-bold uppercase tracking-wider text-brandRed">{director.title}</p>
-        <h3 className="mt-1 text-sm font-extrabold leading-tight text-white sm:text-lg">{director.name}</h3>
+        <h3 className="text-sm font-extrabold leading-tight text-white sm:text-lg">{founder.name}</h3>
       </div>
     </Reveal>
   )
@@ -47,14 +46,14 @@ function AboutPage() {
 
       <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1.6fr)_minmax(0,1.2fr)]">
-          <DirectorPortrait className="order-1 lg:order-none" director={directors[0]} index={0} />
+          <FounderPortrait className="order-1 lg:order-none" founder={founders[0]} index={0} />
           <Reveal as="div" className="order-3 min-w-0 lg:order-none" delay={180} direction="up">
             <p className="text-xs font-bold uppercase tracking-widest text-brandRed">Who We Are</p>
             <h2 className="mt-3 text-2xl font-extrabold sm:text-5xl">A builder shaped by <span className="text-gradient-red">purpose, quality, and trust.</span></h2>
             <p className="mt-6 text-base leading-relaxed text-gray-300">Daarsheel Realty is not merely a real estate company; it is a design-led enterprise driven by a philosophy of enduring elegance. Our teams combine architectural intelligence, responsible development practices, and market expertise to deliver communities that feel personal and premium.</p>
             <p className="mt-4 text-base leading-relaxed text-gray-400">We are known for our disciplined project delivery, transparent communication, and highly curated customer journeys that transform the act of buying property into an enriching life milestone.</p>
           </Reveal>
-          <DirectorPortrait className="order-2 lg:order-none" director={directors[1]} index={1} />
+          <FounderPortrait className="order-2 lg:order-none" founder={founders[1]} index={1} />
         </div>
       </section>
 

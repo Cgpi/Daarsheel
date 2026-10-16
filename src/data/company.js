@@ -4,7 +4,7 @@ export const company = {
   tagline: 'Luxury Real Estate',
   phone: '+91 70304 09118',
   phoneHref: 'tel:+917030409118',
-  email: 'sales@daarsheelrealty.com',
+  email: 'info@daarsheelrealty.com',
   address: 'Daarsheel Realty Towers, Suite 801, Baner Road, Pune, Maharashtra 411045',
 }
 
@@ -18,9 +18,9 @@ export const navigation = [
   { name: 'Contact', path: '/contact' },
 ]
 
-export const directors = [
-  { name: 'Mr. Darsheel Shah', image: '/images/image-05.jpg', title: 'Director' },
-  { name: 'Mr. Shah', image: '/images/image-05.jpg', title: 'Director' },
+export const founders = [
+  { name: 'Mr. Mahendra Lipane', image: '/images/image-05.jpg', title: 'Founder' },
+  { name: 'Mr. Rohan Shah', image: '/images/image-05.jpg', title: 'Co-founder' },
 ]
 
 export const projects = [
@@ -34,17 +34,6 @@ export const projects = [
     status: 'Ongoing Construction',
     category: 'ongoing',
     description: 'Ultra-luxury sky suites with private wrap-around balconies and panoramic cityscape views.',
-  },
-  {
-    id: 'kuber-ananta',
-    name: 'Kuber Ananta',
-    location: 'Koregaon Park, Pune',
-    price: 'Price On Request',
-    type: '4 & 5 BHK Duplex',
-    image: '/images/image-09.jpg',
-    status: 'Upcoming Launch',
-    category: 'upcoming',
-    description: 'Exclusive high-street luxury living surrounded by lush greenery and private club access.',
   },
   {
     id: 'vasant-bahar',
@@ -67,17 +56,6 @@ export const projects = [
     status: '100% Completed',
     category: 'completed',
     description: 'Award-winning resort style living with expansive private clubhouse and infinity pool.',
-  },
-  {
-    id: 'serenity-tower',
-    name: 'The Serenity Tower',
-    location: 'Aundh, Pune',
-    price: '₹ 4.20 Cr*',
-    type: '4 BHK Sky Penthouses',
-    image: '/images/image-15.jpg',
-    status: 'Upcoming',
-    category: 'upcoming',
-    description: 'Ultra-private single apartment per floor design with private elevator keys.',
   },
 ]
 

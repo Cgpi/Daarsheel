@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { projects } from '../data/company.js'
 
 const contactOptions = [
   { icon: 'fa-phone', title: 'Call our sales desk', detail: '+91 70304 09118', href: 'tel:+917030409118' },
-  { icon: 'fa-envelope', title: 'Email us', detail: 'sales@daarsheelrealty.com', href: 'mailto:sales@daarsheelrealty.com' },
+  { icon: 'fa-envelope', title: 'Email us', detail: 'info@daarsheelrealty.com', href: 'mailto:info@daarsheelrealty.com' },
   { icon: 'fa-location-dot', title: 'Visit our office', detail: 'Baner Road, Pune, Maharashtra', href: '#' },
 ]
 
@@ -48,7 +49,7 @@ function ContactPage() {
               <label className="block text-sm font-semibold text-gray-300">Full name<input className="mt-2 w-full rounded-xl border border-white/10 bg-darkBg px-4 py-3.5 text-white outline-none transition focus:border-brandRed" name="name" placeholder="Your name" required type="text" /></label>
               <label className="block text-sm font-semibold text-gray-300">Phone number<input className="mt-2 w-full rounded-xl border border-white/10 bg-darkBg px-4 py-3.5 text-white outline-none transition focus:border-brandRed" name="phone" placeholder="Your phone" required type="tel" /></label>
               <label className="block text-sm font-semibold text-gray-300">Email address<input className="mt-2 w-full rounded-xl border border-white/10 bg-darkBg px-4 py-3.5 text-white outline-none transition focus:border-brandRed" name="email" placeholder="Your email" required type="email" /></label>
-              <label className="block text-sm font-semibold text-gray-300">Project interest<select className="mt-2 w-full rounded-xl border border-white/10 bg-darkBg px-4 py-3.5 text-white outline-none transition focus:border-brandRed" defaultValue="" id="project-select" name="interest" required><option disabled value="">Select a project</option><option value="Luminare Heights">Luminare Heights</option><option value="Kuber Ananta">Kuber Ananta</option><option value="Vasant Bahar">Vasant Bahar</option><option value="The Serenity Tower">The Serenity Tower</option><option value="Bliss Coast">Bliss Coast</option><option value="Other">Other</option></select></label>
+              <label className="block text-sm font-semibold text-gray-300">Project interest<select className="mt-2 w-full rounded-xl border border-white/10 bg-darkBg px-4 py-3.5 text-white outline-none transition focus:border-brandRed" defaultValue="" id="project-select" name="interest" required><option disabled value="">Select a project</option>{projects.map((project) => <option key={project.id} value={project.name}>{project.name}</option>)}<option value="Other">Other</option></select></label>
               <label className="block text-sm font-semibold text-gray-300 sm:col-span-2">Requirements<textarea className="mt-2 min-h-32 w-full rounded-xl border border-white/10 bg-darkBg px-4 py-3.5 text-white outline-none transition focus:border-brandRed" name="message" placeholder="Tell us your budget, preferred location, and desired timeline" required /></label>
             </div>
             <div className="mt-7 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">

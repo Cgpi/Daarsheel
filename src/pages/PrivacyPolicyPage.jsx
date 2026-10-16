@@ -62,7 +62,7 @@ function PrivacyPolicyPage() {
       <section className="mt-10 rounded-3xl border border-brandRed/30 bg-brandRed/5 p-6 sm:p-8">
         <h2 className="text-xl font-bold text-white">Contact us</h2>
         <p className="mt-3 text-base leading-relaxed text-gray-300">
-          If you have questions about this policy or would like to exercise your rights, please contact our team at sales@daarsheelrealty.com or call +91 70304 09118.
+          If you have questions about this policy or would like to exercise your rights, please contact our team at info@daarsheelrealty.com or call +91 70304 09118.
         </p>
         <Link className="mt-5 inline-flex items-center gap-3 rounded-full bg-brandRed px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:bg-brandRed-hover" to="/contact">
           Contact us <i className="fa-solid fa-arrow-right-long" />

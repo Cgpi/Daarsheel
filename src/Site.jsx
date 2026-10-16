@@ -11,12 +11,13 @@ import ProjectsPage from './pages/ProjectsPage.jsx'
 import ReviewsPage from './pages/ReviewsPage.jsx'
 import TermsOfServicePage from './pages/TermsOfServicePage.jsx'
 import VenturesPage from './pages/VenturesPage.jsx'
+import ProjectDetailPage from './pages/ProjectDetailPage.jsx'
+import { projects } from './data/company.js'
 import { easeOutCubic } from './utils/motion.js'
 
 function Site() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [project, setProject] = useState(null)
   const [enquiryOpen, setEnquiryOpen] = useState(false)
   const [videoOpen, setVideoOpen] = useState(false)
   const location = useLocation()
@@ -48,7 +49,6 @@ function Site() {
   useEffect(() => {
     const closeOnEscape = (event) => {
       if (event.key === 'Escape') {
-        setProject(null)
         setEnquiryOpen(false)
         setVideoOpen(false)
       }
@@ -91,12 +91,7 @@ function Site() {
     return () => observer.disconnect()
   }, [location.pathname])
 
-  const openProjectDetails = (name, locationName, price, type, image) => {
-    setProject({ name, location: locationName, price, type, image })
-  }
-
   const openEnquiryModal = (name) => {
-    setProject(null)
     setEnquiryOpen(true)
     window.setTimeout(() => {
       const projectSelect = document.getElementById('enquiry-project-select')
@@ -117,11 +112,12 @@ function Site() {
       >
         <Routes location={location}>
           <Route
-            element={<HomePage onOpenEnquiryModal={openEnquiryModal} onOpenProjectDetails={openProjectDetails} onOpenVideoModal={openVideoModal} onPrefillProject={prefillProject} onSetSlide={setCurrentSlide} />}
+            element={<HomePage onOpenEnquiryModal={openEnquiryModal} onOpenVideoModal={openVideoModal} onPrefillProject={prefillProject} onSetSlide={setCurrentSlide} />}
             path="/"
           />
           <Route element={<AboutPage />} path="/about" />
-          <Route element={<ProjectsPage onOpenEnquiryModal={openEnquiryModal} onOpenProjectDetails={openProjectDetails} onPrefillProject={prefillProject} />} path="/projects" />
+          <Route element={<ProjectsPage onOpenEnquiryModal={openEnquiryModal} />} path="/projects" />
+          <Route element={<ProjectDetailPage onOpenEnquiryModal={openEnquiryModal} />} path="/projects/:projectId" />
           <Route element={<VenturesPage />} path="/ventures" />
           <Route element={<AmenitiesPage />} path="/amenities" />
           <Route element={<ReviewsPage />} path="/reviews" />
@@ -131,32 +127,6 @@ function Site() {
           <Route element={<Navigate replace to="/" />} path="*" />
         </Routes>
       </PageLayout>
-
-      <AnimatePresence>
-        {project && (
-          <motion.div animate={{ opacity: 1 }} className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-4 backdrop" exit={{ opacity: 0 }} initial={{ opacity: 0 }} onClick={() => setProject(null)} role="presentation" transition={{ duration: 0.2, ease: easeOutCubic }}>
-          <motion.section animate={{ opacity: 1, scale: 1, y: 0 }} aria-labelledby="project-modal-title" aria-modal="true" className="crimson-glass relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-brandRed/40 p-6" exit={{ opacity: 0, scale: 0.98, y: 12 }} initial={{ opacity: 0, scale: 0.97, y: 20 }} onClick={(event) => event.stopPropagation()} role="dialog" transition={{ duration: 0.24, ease: easeOutCubic }}>
-            <button aria-label="Close project details" className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-brandRed" onClick={() => setProject(null)} type="button">
-              <i className="fa-solid fa-xmark text-sm" />
-            </button>
-            <div className="relative mb-4 h-60 overflow-hidden rounded-2xl">
-              <img alt={project.name} className="h-full w-full object-cover" src={project.image} />
-              <div className="absolute inset-0 bg-gradient-to-t from-darkCard via-transparent to-transparent" />
-            </div>
-            <h2 className="mb-1 text-2xl font-bold text-white" id="project-modal-title">{project.name}</h2>
-            <p className="mb-4 text-xs font-semibold text-brandRed"><i className="fa-solid fa-location-dot mr-1" /> {project.location}</p>
-            {/* <div className="mb-4 grid grid-cols-2 gap-3 text-xs">
-              <div className="rounded-xl border border-white/10 bg-darkBg p-3"><span className="block text-[10px] text-gray-400">Configurations</span><span className="font-bold text-white">{project.type}</span></div>
-              <div className="rounded-xl border border-white/10 bg-darkBg p-3"><span className="block text-[10px] text-gray-400">Price Range</span><span className="font-bold text-brandRed">{project.price}</span></div>
-            </div> */}
-            <p className="mb-6 text-xs leading-relaxed text-gray-300">Designed with contemporary aesthetics, private elevator lobbies, energy-efficient Smart Glass facades, and state-of-the-art security integrations.</p>
-            <button className="block w-full rounded-xl bg-brandRed py-3 text-center text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-all hover:bg-brandRed-hover" onClick={() => openEnquiryModal(project.name)} type="button">
-              Request Floor Plan &amp; Schedule Visit
-            </button>
-          </motion.section>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       <AnimatePresence>
         {enquiryOpen && (
@@ -177,7 +147,7 @@ function Site() {
               <label className="block text-sm font-semibold text-gray-300">Full name<input className="mt-2 w-full rounded-xl border border-white/10 bg-darkBg px-4 py-3 text-white outline-none transition focus:border-brandRed" name="name" placeholder="Your name" required type="text" /></label>
               <label className="block text-sm font-semibold text-gray-300">Phone number<input className="mt-2 w-full rounded-xl border border-white/10 bg-darkBg px-4 py-3 text-white outline-none transition focus:border-brandRed" name="phone" placeholder="Your phone" required type="tel" /></label>
               <label className="block text-sm font-semibold text-gray-300">Email address<input className="mt-2 w-full rounded-xl border border-white/10 bg-darkBg px-4 py-3 text-white outline-none transition focus:border-brandRed" name="email" placeholder="Your email" required type="email" /></label>
-              <label className="block text-sm font-semibold text-gray-300">Project interest<select className="mt-2 w-full rounded-xl border border-white/10 bg-darkBg px-4 py-3 text-white outline-none transition focus:border-brandRed" defaultValue="" id="enquiry-project-select" name="interest" required><option disabled value="">Select a project</option><option value="Luminare Heights">Luminare Heights</option><option value="Kuber Ananta">Kuber Ananta</option><option value="Vasant Bahar">Vasant Bahar</option><option value="The Serenity Tower">The Serenity Tower</option><option value="Bliss Coast">Bliss Coast</option><option value="Other">Other</option></select></label>
+              <label className="block text-sm font-semibold text-gray-300">Project interest<select className="mt-2 w-full rounded-xl border border-white/10 bg-darkBg px-4 py-3 text-white outline-none transition focus:border-brandRed" defaultValue="" id="enquiry-project-select" name="interest" required><option disabled value="">Select a project</option>{projects.map((item) => <option key={item.id} value={item.name}>{item.name}</option>)}<option value="Other">Other</option></select></label>
               <label className="block text-sm font-semibold text-gray-300 sm:col-span-2">Requirements<textarea className="mt-2 min-h-28 w-full rounded-xl border border-white/10 bg-darkBg px-4 py-3 text-white outline-none transition focus:border-brandRed" name="message" placeholder="Tell us your budget, preferred location, and desired timeline" required /></label>
               <div className="flex flex-col items-start justify-between gap-4 sm:col-span-2 sm:flex-row sm:items-center">
                 <p className="text-xs leading-relaxed text-gray-500">By submitting, you agree to be contacted by our team regarding your enquiry.</p>
